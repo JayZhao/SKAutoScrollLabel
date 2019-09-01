@@ -190,14 +190,14 @@ static const CGFloat kDefaultFadeLength = 7.f;
     } else {
         CGRect frame = self.animationLabel.frame;
         NSDictionary *attributeDic = [NSDictionary dictionaryWithObjectsAndKeys:self.animationLabel.font, NSFontAttributeName, nil];;
-        CGFloat wordWidth = self.animationLabel.font.pointSize;
+        CGFloat wordWidth = self.bounds.size.width;
         CGSize textContentSize = [self.animationLabel.text boundingRectWithSize:CGSizeMake(wordWidth, CGFLOAT_MAX)
                                                                         options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin
                                                                      attributes:attributeDic
                                                                         context:nil].size;
         CGFloat wordHeight = textContentSize.height;
         if (direction == SK_AUTOSCROLL_DIRECTION_TOP) {
-            frame.origin = CGPointMake(self.frame.size.width / 2 - wordWidth / 2, 0);
+            frame.origin = CGPointMake(0, 0);
         } else {
             frame.origin = CGPointMake(self.frame.size.width / 2 - wordWidth / 2, 0);
         }
