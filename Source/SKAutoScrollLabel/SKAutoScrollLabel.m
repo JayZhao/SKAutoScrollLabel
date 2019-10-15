@@ -142,7 +142,9 @@ static const CGFloat kDefaultFadeLength = 7.f;
     [super layoutSubviews];
     if (self.layoutCount < 1) {
         [self initElements];
-        [self creatDisplayLink];
+        if (self.containerView.subviews.count > 1) {
+            [self creatDisplayLink];
+        }
         self.layoutCount++;
     }
 }
